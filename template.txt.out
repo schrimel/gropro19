@@ -1,0 +1,13 @@
+reset
+set xrange[0.0:0.0]
+set yrange[0.0:0.0]
+set size ratio 1.0
+set title "<Name des Kennwertes>, Iteration: 100"
+unset xtics
+unset ytics
+$data << EOD
+100
+EOD
+plot \
+'$data' using 1:2:3:5 with circles lc var notitle, \
+'$data' using 1:2:4:5 with lables font "arial,9" tc variable notitle
