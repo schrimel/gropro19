@@ -8,7 +8,7 @@ import argparse
 
 ap = argparse.ArgumentParser("Hello there!")
 ap.add_argument("-i", action="store", dest="input")
-ap.add_argument("-o", action="store", dest="output", default="<default>")
+ap.add_argument("-o", action="store", dest="output")
 ap.add_argument("-n", action="store", dest="iterationen", type=int, default=100)
 ap.add_argument("-s", action="store", dest="skalierungsfaktor", type=float, default=1)
 
@@ -35,8 +35,14 @@ def main(arguments):
     if arguments.input == None:
         main.printUsage()
         return 0
+    if arguments.output == None:
+        print("pimml")
+        main.mFilename = arguments.input.split(".")[1]
+        print(arguments.input.split("."))
+    else:
+        main.mFilename = arguments.output
     main.mInput = InputReader(arguments.input)
-    main.mFilename = arguments.output
+    
     main.karte = main.mInput.read()
     if(main.karte == None):
         return 1

@@ -23,13 +23,18 @@ class Berechnung:
 
 class StandardBerechnung(Berechnung):
     def voriteration(self, karte, faktor):
+        rMax = -1
         for l in karte.laenderliste:
             l.xPos = float(l.xPos) * faktor
             l.yPos = float(l.yPos) * faktor
+            if l.radius > rMax:
+                rMax = l.radius
+        print(rMax)
+        #for l in karte.laenderliste:
+         #   l.radius = l.radius * math.sqrt(1/math.pi) / rMax
 
     def berechne(self, karte):
-        besucht = []
-        g = 0.5
+        g = 0.3
         liste = karte.laenderliste
         for i in range(0,len(liste)):
             heimatland = liste[i]
@@ -37,16 +42,14 @@ class StandardBerechnung(Berechnung):
                 ausland = liste[j]
                 if ausland == heimatland:
                     continue
-                if self.distance(heimatland, ausland) < 0 and not heimatland in besucht:
+                if self.distance(heimatland, ausland) < 0:
                     forceHeimatland =  -1 * g * self.normVektor(heimatland, ausland) * self.distance(heimatland, ausland)
                     heimatland.kraftX += forceHeimatland[0]
                     heimatland.kraftY += forceHeimatland[1]
-                    besucht.append(heimatland)
                 elif self.distance(heimatland, ausland) > 0 and ausland in heimatland.nachbarlaender:
                     forceHeimatland = -1 * g * self.normVektor(heimatland, ausland) * self.distance(heimatland, ausland)
                     heimatland.kraftX += forceHeimatland[0]
                     heimatland.kraftY += forceHeimatland[1]
-                    besucht.append(heimatland)
         for land in liste:
             land.xPos = float(land.xPos) + float(land.kraftX)
             land.yPos = float(land.yPos) + float(land.kraftY)

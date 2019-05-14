@@ -37,6 +37,8 @@ class OutputWriter:
         file_string = (re.sub("<Liste aus <xpos> <ypos> <radius> <autokennzeichen> <id> >", s , file_string))
         # Write contents to file.
         # Using mode 'w' truncates the file.
-        file_handle = open(self.mFilename + ".gpl", 'w')
+        file_handle = open("." + self.mFilename + ".gpl", 'w')
         file_handle.write(file_string)
+        print("pimml")
+        print(self.mFilename)
         file_handle.close()
