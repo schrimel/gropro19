@@ -34,14 +34,14 @@ class StandardBerechnung(Berechnung):
     def voriteration(self, karte, faktor=0):
         if(faktor == 0):
             faktor = self.mittelwerteRadien(karte)
-        rMax = -1
+        rMin = 1e15
         for l in karte.laenderliste:
             l.xPos = float(l.xPos) * faktor
             l.yPos = float(l.yPos) * faktor
-            if l.radius > rMax:
-                rMax = l.radius
-        #for l in karte.laenderliste:
-         #   l.radius = l.radius * math.sqrt(1/math.pi) / rMax
+            if l.radius < rMin:
+                rMin = l.radius
+        for l in karte.laenderliste:
+            l.radius = 2*l.radius / rMin
 
     def berechne(self, karte):
         g = 0.3
