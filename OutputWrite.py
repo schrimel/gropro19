@@ -24,7 +24,6 @@ class OutputWriter:
         file_string = (re.sub("<xmax>", str(self.mKarte.xmax) , file_string))
         file_string = (re.sub("<ymin>", str(self.mKarte.ymin) , file_string))
         file_string = (re.sub("<ymax>", str(self.mKarte.ymax) , file_string))
-        print(self.mKarte.kennzahlBz)
         
         file_string = (re.sub("<Name des Kennwertes>", self.mKarte.kennzahlBz[:-1], file_string))
         file_string = (re.sub("<nr>", str(self.mIterationen) , file_string))
@@ -37,8 +36,6 @@ class OutputWriter:
         file_string = (re.sub("<Liste aus <xpos> <ypos> <radius> <autokennzeichen> <id> >", s , file_string))
         # Write contents to file.
         # Using mode 'w' truncates the file.
-        file_handle = open("." + self.mFilename + ".gpl", 'w')
+        file_handle = open(self.mFilename + ".gpl", 'w')
         file_handle.write(file_string)
-        print("pimml")
-        print(self.mFilename)
         file_handle.close()

@@ -22,14 +22,24 @@ class Berechnung:
 
 
 class StandardBerechnung(Berechnung):
-    def voriteration(self, karte, faktor):
+    def mittelwerteRadien(self, karte):
+        sum = 0
+        count = 0
+        for l in karte.laenderliste:
+            sum += l.radius
+            count = count + 1 
+        return sum / count
+        
+
+    def voriteration(self, karte, faktor=0):
+        if(faktor == 0):
+            faktor = self.mittelwerteRadien(karte)
         rMax = -1
         for l in karte.laenderliste:
             l.xPos = float(l.xPos) * faktor
             l.yPos = float(l.yPos) * faktor
             if l.radius > rMax:
                 rMax = l.radius
-        print(rMax)
         #for l in karte.laenderliste:
          #   l.radius = l.radius * math.sqrt(1/math.pi) / rMax
 

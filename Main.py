@@ -32,13 +32,12 @@ class Main:
     
 def main(arguments):
     main = Main()
-    if arguments.input == None:
+    if arguments.input == None: 
         main.printUsage()
         return 0
     if arguments.output == None:
-        print("pimml")
-        main.mFilename = arguments.input.split(".")[1]
-        print(arguments.input.split("."))
+        filtered = filter(None, arguments.input.split("."))
+        main.mFilename = filtered[0]
     else:
         main.mFilename = arguments.output
     main.mInput = InputReader(arguments.input)
