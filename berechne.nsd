@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.29-10" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="cschirmel" created="2019-05-15" changedby="cschirmel" changed="2019-05-15" origin="Structorizer 3.29-10" text="&#34;berechne(karte)&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;g = 0.3&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<for text="&#34;for i &#60;- 0 to len(karte.laenderliste)&#34;" comment="" counterVar="i" startValue="0" endValue="len(karte.laenderliste)" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;heimatland = karte.laenderliste[i]&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<for text="&#34;for j &#60;- 0 to len(karte.laenderliste)&#34;" comment="" counterVar="j" startValue="0" endValue="len(karte.laenderliste)" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+					<qFor>
+						<instruction text="&#34;ausland = liste[i]&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+						<alternative text="&#34;ausland == heimatland&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;continue&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+						<alternative text="&#34;kreisabstand(heimatland,ausland) &#60; 0&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;kraftHeimatland = -1 * g * normierterVektor(heimatland,ausland) * kreisabstand(heimatland,ausland)&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;heimatland.kraftX += kraftHeimatland[0]&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;heimatland.kraftY += kraftHeimatland[1]&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+						<alternative text="&#34;kreisabstand(heimatland, ausland) &#62; 0 and ausland in heimatland.nachbarlaender&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;kraftHeimatland = -1 * g * normierterVektor(heimatland,ausland) * kreisabstand(heimatland,ausland)&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;heimatland.kraftX += kraftHeimatland[0]&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;heimatland.kraftY += kraftHeimatland[1]&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+					</qFor>
+				</for>
+			</qFor>
+		</for>
+		<for text="&#34;foreach land in karte.laenderliste&#34;" comment="" counterVar="land" startValue="" stepConst="" style="TRAVERSAL" insep="in" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;land.xPosition += land.kraftX&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;land.yPosition += land.kraftY&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;land.kraftX = land.kraftY = 0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+	</children>
+</root>
