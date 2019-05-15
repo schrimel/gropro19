@@ -32,20 +32,30 @@ class Main:
     
 def main(arguments):
     main = Main()
-    if arguments.input == None: 
-        main.printUsage()
-        return 0
-    if arguments.output == None:
-        filtered = filter(None, arguments.input.split("."))
-        main.mFilename = filtered[0]
-    else:
-        main.mFilename = arguments.output
+    #check arguments and initialize variables of main
+    try:
+        main.iterationen = arguments.iterationen
+        if main.iterationen <= 0:
+            raise ArithmeticError("Error. Also, 0 oder weniger Iterationen sind wirklich nicht moeglich. Zeitreisen wurde noch nicht implementiert.")
+        if arguments.input == None: 
+            main.printUsage()
+            return 0
+        if arguments.skalierungsfaktor < 0:
+            raise ArithmeticError("Error. Der Faktor muss groesser 0 sein.")
+        if arguments.output == None:
+            filtered = filter(None, arguments.input.split("."))
+            main.mFilename = filtered[0]
+        else:
+            main.mFilename = arguments.output
+    except ArithmeticError as err:
+        print(err.message)
+        return 1
     main.mInput = InputReader(arguments.input)
     
+    #read input
     main.karte = main.mInput.read()
-    if(main.karte == None):
+    if(main.karte == None): #input file has semantic issues
         return 1
-    main.iterationen = arguments.iterationen
     karte = main.karte
     main.mBerechnung = StandardBerechnung()
     for i in range(main.iterationen):

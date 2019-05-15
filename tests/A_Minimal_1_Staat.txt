@@ -1,0 +1,4 @@
+Flaeche der Staaten
+# Staat Fläche Längengrad Breitengrad
+D 357 10.0 51.3
+# Nachbarschaften

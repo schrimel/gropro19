@@ -1,0 +1,26 @@
+Arbeitslosenquote in Europa und Australien 2019
+# Staat Quote (Prozent) Laengengrad Breitengrad
+GR 19 22.9 39.5
+E 14 -3.7 40.5
+I 10 11.7 43.2
+F 9 2.8 47.4
+HR 7 16.0 45.2
+DK 5 9.6 56.0
+A 5 14.2 47.6
+BG 5 25.2 42.7
+D 3 10.0 51.3
+SLO 4 14.7 46.1
+P 6 -8.2 39.6
+H 3 19.2 47.1
+RO 4 25.0 45.9
+AUS 5 -25.2 133.8
+# Nachbarschaften
+D: F A DK
+F: E I
+A: SLO I H
+E: P
+I: SLO
+SLO: H HR
+H: HR RO
+RO: BG
+BG: GR
