@@ -327,15 +327,52 @@ wird im folgenden in einem Nassi-Shneiderman-Diagramm dargestellt:
 }
 
 \section{\"Anderungen zum Montagsteil}
-
 \subsection{\"Anderungen in der Klassenstruktur}
 
+Die Klassenstruktur wurde auf die Programmiersprache angepasst, ist aber grunds\"atzlich erhalten geblieben. Aus dem Interface Berechnung habe ich eine abstrakte Klasse gemacht, um sinnvolle Methoden abstrahieren zu k\"onnen. Da ich in Python gearbeitet habe, waren Getter und Setter nicht mehr erforderlich, da alle Variablen, die ausserhalb von Funktionen definiert sind global sind.
+Im Klassendiagramm wurden in der Klasse \colorbox{lightgray}{Land} die beiden Membervariablen \colorbox{lightgray}{radius} und \colorbox{lightgray}{nachbarlaender} eingef\"ugt.
+Ausserdem habe ich die folgenden Methoden erg\"anzt:
+
+\textbf{Klasse InputReader:}\\
+\begin{itemize}
+	\item \colorbox{lightgray}{zusammenhaengend(laenderliste)} - Wrapper um Rekusionsaufruf
+	\item \colorbox{lightgray}{zusammenhaengendRek(startland, besucht)} - rekursive Methode, die ermittelt, ob alle L\"ander zusammenh\"angen
+	\item \colorbox{lightgray}{addNachbarnToLand} - f\"ugt einem Land einen Nachbar hinzu.\\
+\end{itemize}
+\textbf{Klasse Karte:}\\
+\begin{itemize}
+	\item \colorbox{lightgray}{scale()} - Erf\"ullt die Bedingung ymax-ymin = xmax-xmin
+	\item \colorbox{lightgray}{berechneMinimum()} - Berechnet die Minima xmin, ymin und Maxima xmax, ymax
+\end{itemize}
+\textbf{Klasse Land:}\\
+\begin{itemize}
+	\item \colorbox{lightgray}{\_\_str\_\_()} - Stringdarstellung eines Landes
+	\item \colorbox{lightgray}{\_\_repr\_\_()} - Stringdarstellung eines Landes (f\"ur debugging)
+	\item \colorbox{lightgray}{addNachbar(nachbar)} - F\"ugt einen Nachbar hinzu
+	\item \colorbox{lightgray}{containsNachbar(nachbar)} - Gibt true zur\"uck wenn nachbar Nachbar ist
+\end{itemize}
+\textbf{Klasse \textit{Berechnung:}}\\
+\begin{itemize}
+	\item \colorbox{lightgray}{distance(landA, landB)} - Berechnet den Kreisabstand zwischen zwei L\"andern
+	\item \colorbox{lightgray}{normVektor(landA, landB)} - Gibt den normierten Verbindungsvektor AB zur\"uck
+\end{itemize}
+\textbf{Klasse Standardberechnung:}
+\begin{itemize}
+	\item \colorbox{lightgray}{mittelwertRadien(karte)} - Gibt den Mittelwert der Radien zur\"uck
+	\item \colorbox{lightgray}{voriteration} - f\"uhrt eine Voriteration durch
+\end{itemize}
+
+
+
 \subsection{\"Anderungen beim Algorithmus}
+An meinem Hauptalgorithmus habe ich im Vergleich zu Montag so ver\"andert, dass die \"Uberpr\"ufung weggefallen ist, ob eine Kraft bereits h\"alftig auf ein Land angewandt wurde oder nicht.
+Dies habe ich dadurch ersetzt, dass nun \"uber alle L\"ander iteriert wird und von vornherein nur die anteilige Kraft angewandt wird. Die beiden m\"oglichen Voriterationen wurden nach Montag ebenfalls eingef\"ugt.
+Die Kraft wird anteilig mit einem Faktor von 0.3 auf beide Mittelpunkte angewandt. Dies verbesserte das Ergebnis im Vergleich zu 0.5.
 
 \section{Zusammenfassung und Ausblick}
-
-
-Zusammenfassung: Läuft.
+Das Programm funktioniert wie in der Aufgabenstellung vorgegeben: Es liest die syntaktisch korrekte Datei ein, pr\"uft auf semantische Fehler wie z.B. ein doppeltes Land, berechnet die geforderte Anzahl
+Iterationen und schreibt das Ergebnis in eine Ausgabedatei. Intern werden durch einen objektorientierten Ansatz Ein-/Ausgabe und Funktionalit\"at sauber voneinander getrennt und \"uber eine Abstrahierung
+der Klasse Berechnung ist es leicht m\"oglich weitere Klassen zur Berechnung abzuleiten.
 
 Ausblick-Ideen: GUI, Parallelisierung, weitere Features
 

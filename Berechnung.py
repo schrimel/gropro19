@@ -2,7 +2,7 @@ import numpy as np
 import math
 from numpy import linalg as LA
 from Land import Land
-
+from abc import ABC, abstractmethod
 class Berechnung:
     def distance(self, landA, landB):
         arrA = [landA.xPos, landA.yPos]
@@ -12,6 +12,7 @@ class Berechnung:
         radii = landA.radius + landB.radius
         return distanceLength - radii
     
+    @abstractmethod
     def berechne(self, karte):
         pass
 
@@ -22,7 +23,7 @@ class Berechnung:
 
 
 class StandardBerechnung(Berechnung):
-    def mittelwerteRadien(self, karte):
+    def mittelwertRadien(self, karte):
         sum = 0
         count = 0
         for l in karte.laenderliste:
@@ -33,7 +34,7 @@ class StandardBerechnung(Berechnung):
 
     def voriteration(self, karte, faktor=0):
         if(faktor == 0):
-            faktor = self.mittelwerteRadien(karte)
+            faktor = self.mittelwertRadien(karte)
         rMin = 1e15
         for l in karte.laenderliste:
             l.xPos = float(l.xPos) * faktor

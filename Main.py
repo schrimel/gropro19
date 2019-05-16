@@ -62,40 +62,15 @@ def main(arguments):
         if (i == 0):
             main.mBerechnung.voriteration(karte, arguments.skalierungsfaktor)
         karte = main.mBerechnung.berechne(karte)
-    berechneMinimum(karte)
-    scale(karte)
+    karte.berechneMinimum(karte)
+    karte.scale()
     if(main.mFilename == "<default>"):
         main.mFilename = arguments.input.split(".")[0]
     main.mOutput = OutputWriter(main.mFilename, "templates/template.txt",main.karte,main.iterationen)
     main.mOutput.write()
     return 0
 
-def scale(karte):
-    diffX = karte.xmax - karte.xmin
-    diffY = karte.ymax - karte.ymin
-    if diffY > diffX:
-        karte.xmin = karte.xmin - 0.5 * (diffY-diffX)
-        karte.xmax = karte.xmax + 0.5 * (diffY-diffX)
-    elif diffX > diffY:
-        karte.ymin = karte.ymin - 0.5 * (diffX-diffY)
-        karte.ymax = karte.ymax + 0.5 * (diffX-diffY)
 
-def berechneMinimum(karte):
-    laenderliste = karte.laenderliste
-    xplus = []
-    xminus = []
-    yplus = []
-    yminus = []
-    for l in laenderliste:
-        xplus.append(float(l.xPos) + float(l.radius))
-        xminus.append(float(l.xPos) - float(l.radius))
-        yplus.append(float(l.yPos) + float(l.radius))
-        yminus.append(float(l.yPos) - float(l.radius))
-    karte.xmax = np.max(np.array(xplus))
-    karte.xmin = np.min(np.array(xminus))
-    karte.ymax = np.max(np.array(yplus))
-    karte.ymin = np.min(np.array(yminus))
-    
 
 
 if __name__ == "__main__":
