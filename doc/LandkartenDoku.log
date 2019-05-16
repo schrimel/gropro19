@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/TeX Live for SUSE Linux) (format=pdflatex 2017.10.18)  15 MAY 2019 17:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/TeX Live for SUSE Linux) (format=pdflatex 2017.10.18)  16 MAY 2019 14:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/cschirmel/groPro2019/gropro19/doc/Doku.tex
-(/home/cschirmel/groPro2019/gropro19/doc/Doku.tex
+**/home/cschirmel/groPro2019/gropro19/doc/LandkartenDoku.tex
+(/home/cschirmel/groPro2019/gropro19/doc/LandkartenDoku.tex
 LaTeX2e <2011/06/27>
 Babel <3.9f> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texmf/tex/latex/base/article.cls
@@ -615,8 +615,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip46
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 23.
- (/home/cschirmel/groPro2019/gropro19/doc/Doku.aux)
-\openout1 = `Doku.aux'.
+ (/home/cschirmel/groPro2019/gropro19/doc/LandkartenDoku.aux)
+\openout1 = `LandkartenDoku.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
@@ -717,9 +717,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 57.
 LaTeX Info: Redefining \pageref on input line 57.
 LaTeX Info: Redefining \nameref on input line 57.
- (/home/cschirmel/groPro2019/gropro19/doc/Doku.out) (/home/cschirmel/groPro2019/gropro19/doc/Doku.out)
+ (/home/cschirmel/groPro2019/gropro19/doc/LandkartenDoku.out) (/home/cschirmel/groPro2019/gropro19/doc/LandkartenDoku.out)
 \@outlinefile=\write3
-\openout3 = `Doku.out'.
+\openout3 = `LandkartenDoku.out'.
 
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 76.
@@ -731,28 +731,16 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 76.
  [1
 
-{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/cschirmel/groPro2019/gropro19/doc/Doku.toc
+{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/cschirmel/groPro2019/gropro19/doc/LandkartenDoku.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 39.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 39.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 39.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 39.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.39 ...mberline {7.1}Datei.x}{12}{subsection.7.1}
-                                                   [1])
+)
 \tf@toc=\write4
-\openout4 = `Doku.toc'.
+\openout4 = `LandkartenDoku.toc'.
 
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 78.
@@ -762,7 +750,20 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 78.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 78.
- [2] <ErklaerungUnterschrieben.pdf, id=225, page=1, 598.235pt x 845.1575pt>
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.78 \newpage
+              [1]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 78.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 78.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 78.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 78.
+ [2] <ErklaerungUnterschrieben.pdf, id=210, page=1, 598.235pt x 845.1575pt>
 File: ErklaerungUnterschrieben.pdf Graphic file (type pdf)
  <use ErklaerungUnterschrieben.pdf, page 1>
 Package pdftex.def Info: ErklaerungUnterschrieben.pdf, page1 used on input line 79.
@@ -796,7 +797,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 81.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 81.
- <ihk_beispiel2.png, id=234, 976.39781pt x 489.32813pt>
+ <ihk_beispiel2.png, id=219, 976.39781pt x 489.32813pt>
 File: ihk_beispiel2.png Graphic file (type png)
  <use ihk_beispiel2.png>
 Package pdftex.def Info: ihk_beispiel2.png used on input line 93.
@@ -899,103 +900,98 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 215.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 218.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 218.
- <klassendiagramm_gropro.pdf, id=255, 597.23125pt x 845.1575pt>
+(babel)             in language  on input line 216.
+ <klassendiagramm_gropro.pdf, id=240, 597.23125pt x 845.1575pt>
 File: klassendiagramm_gropro.pdf Graphic file (type pdf)
  <use klassendiagramm_gropro.pdf>
-Package pdftex.def Info: klassendiagramm_gropro.pdf used on input line 219.
+Package pdftex.def Info: klassendiagramm_gropro.pdf used on input line 218.
 (pdftex.def)             Requested size: 455.24411pt x 644.235pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
  [8]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
  [9]
 Overfull \vbox (6.73096pt too high) has occurred while \output is active []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 219.
  [10 </home/cschirmel/groPro2019/gropro19/doc/klassendiagramm_gropro.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 221.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 221.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 223.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 223.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 225.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 225.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 227.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 227.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 229.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 229.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 231.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 231.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 233.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 233.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 235.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 235.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 237.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 237.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 239.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 239.
-Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 246.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 246.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 247.
+(babel)             in language  on input line 246.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 247.
+(babel)             in language  on input line 246.
+ [11] <read.png, id=261, 487.8225pt x 1122.1925pt>
+File: read.png Graphic file (type png)
+ <use read.png>
+Package pdftex.def Info: read.png used on input line 249.
+(pdftex.def)             Requested size: 243.91064pt x 561.09488pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 261.
+(babel)             in language  on input line 254.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 261.
+(babel)             in language  on input line 254.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 263.
+(babel)             in language  on input line 256.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 263.
+(babel)             in language  on input line 256.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 258.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 258.
+ <Sequenzdiagramm.png, id=263, 1196.38272pt x 639.43239pt>
+File: Sequenzdiagramm.png Graphic file (type png)
+ <use Sequenzdiagramm.png>
+Package pdftex.def Info: Sequenzdiagramm.png used on input line 262.
+(pdftex.def)             Requested size: 455.24411pt x 243.3088pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 266.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 266.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 266.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 266.
+ [12 </home/cschirmel/groPro2019/gropro19/doc/read.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 266.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 266.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 268.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1009,126 +1005,195 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 272.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 274.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 274.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 276.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 276.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 278.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 278.
-Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 280.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 280.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 282.
+(babel)             in language  on input line 281.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 282.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 284.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 284.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 286.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 286.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 288.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 288.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 290.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 290.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 292.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 292.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 294.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 294.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 296.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 296.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 298.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 298.
+(babel)             in language  on input line 281.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 299.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 299.
- (/usr/share/texmf/tex/latex/listings/lstlang1.sty
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 299.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 299.
+ [13 </home/cschirmel/groPro2019/gropro19/doc/Sequenzdiagramm.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 299.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 299.
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--305
+
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 308.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 308.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 312.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 312.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 318.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 318.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 319.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 319.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 323.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 323.
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--329
+
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 329.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 329.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 329.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 329.
+[14]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 329.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 329.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 343.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 343.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 345.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 345.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 347.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 347.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 349.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 349.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 351.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 351.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 353.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 353.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 355.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 355.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 357.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 357.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 359.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 359.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 361.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 361.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 363.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 363.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 365.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 365.
+ <klasse_land_source.png, id=281, 680.28065pt x 456.6511pt>
+File: klasse_land_source.png Graphic file (type png)
+ <use klasse_land_source.png>
+Package pdftex.def Info: klasse_land_source.png used on input line 370.
+(pdftex.def)             Requested size: 455.24411pt x 305.59927pt.
+ <klasse_outputwrite_source.png, id=282, 724.27109pt x 589.27846pt>
+File: klasse_outputwrite_source.png Graphic file (type png)
+ <use klasse_outputwrite_source.png>
+Package pdftex.def Info: klasse_outputwrite_source.png used on input line 374.
+(pdftex.def)             Requested size: 455.24411pt x 370.40218pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 375.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 375.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 375.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 375.
+ [15] <klasse_karte_source.png, id=287, 303.21979pt x 206.48572pt>
+File: klasse_karte_source.png Graphic file (type png)
+ <use klasse_karte_source.png>
+Package pdftex.def Info: klasse_karte_source.png used on input line 378.
+(pdftex.def)             Requested size: 242.57616pt x 165.18878pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 379.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 379.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 379.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 379.
+ [16 </home/cschirmel/groPro2019/gropro19/doc/klasse_land_source.png>] (/usr/share/texmf/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 ) (/usr/share/texmf/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 ) (/usr/share/texmf/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-)
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 315.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 315.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 316.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 316.
- 
+) 
 AED: lastpage setting LastPage
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 397.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 397.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 397.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 318.
-[11]
+(babel)             in language  on input line 397.
+[17 </home/cschirmel/groPro2019/gropro19/doc/klasse_outputwrite_source.png> </home/cschirmel/groPro2019/gropro19/doc/klasse_karte_source.png>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 397.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 318.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 318.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 318.
- [12]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 318.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 318.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 318.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 318.
- (/home/cschirmel/groPro2019/gropro19/doc/Doku.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 318.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 318.
-Package rerunfilecheck Info: File `Doku.out' has not changed.
-(rerunfilecheck)             Checksum: 59BF2BC3494F144E8C5F6A5C47776A14;2655.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 318.
+(babel)             in language  on input line 397.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 397.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 397.
+ (/home/cschirmel/groPro2019/gropro19/doc/LandkartenDoku.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 397.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 397.
+Package rerunfilecheck Info: File `LandkartenDoku.out' has not changed.
+(rerunfilecheck)             Checksum: 78A749657C55F15CF14356DF3817BD92;2500.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 397.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 80 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 9323 strings out of 493315
- 134213 string characters out of 6145892
- 261793 words of memory out of 5000000
- 12586 multiletter control sequences out of 15000+600000
+ 9347 strings out of 493315
+ 134932 string characters out of 6145892
+ 255607 words of memory out of 5000000
+ 12604 multiletter control sequences out of 15000+600000
  9190 words of font info for 32 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 40i,18n,58p,486b,491s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,18n,58p,345b,491s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on /home/cschirmel/groPro2019/gropro19/doc/Doku.pdf (13 pages, 184240 bytes).
+Output written on /home/cschirmel/groPro2019/gropro19/doc/LandkartenDoku.pdf (18 pages, 415399 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 291 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 346 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 295 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 347 words of extra memory for PDF output out of 10000 (max. 10000000)
 

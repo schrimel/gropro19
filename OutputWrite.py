@@ -18,13 +18,11 @@ class OutputWriter:
         file_handle = open(self.mTemplate, 'r')
         file_string = file_handle.read()
         file_handle.close()
-
         # Use RE package to allow for replacement (also allowing for (multiline) REGEX)
         file_string = (re.sub("<xmin>", str(self.mKarte.xmin) , file_string))
         file_string = (re.sub("<xmax>", str(self.mKarte.xmax) , file_string))
         file_string = (re.sub("<ymin>", str(self.mKarte.ymin) , file_string))
-        file_string = (re.sub("<ymax>", str(self.mKarte.ymax) , file_string))
-        
+        file_string = (re.sub("<ymax>", str(self.mKarte.ymax) , file_string))      
         file_string = (re.sub("<Name des Kennwertes>", self.mKarte.kennzahlBz[:-1], file_string))
         file_string = (re.sub("<nr>", str(self.mIterationen) , file_string))
         s = ""

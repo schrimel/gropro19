@@ -11,4 +11,3 @@ class Karte:
         for land in l:
             self.laenderliste.append(land)
         self.kennzahlBz = kennzBz
-        #TODO x,y

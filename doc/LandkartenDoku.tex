@@ -213,15 +213,42 @@ Andere Werte werden nicht akzeptiert.
 \item Alle Staaten m\"ussen zusammenh\"angen. Ansonsten ist die Berechnung nicht durchf\"urbar.
 \end{itemize}
 \section{Objektorientierter Entwurf}
-
-
 \subsection{Klassendiagramm}
+\begin{center}
 \includegraphics[width=\linewidth]{klassendiagramm_gropro.pdf}
-
+\end{center}
 \subsection{Beschreibung}
+Die Hauptklasse des Programms ist die Klasse \colorbox{lightgray}{Main}, die den Einstiegspunkt des Programms markiert und alle anderen Vorg\"ange steuert.
+Hierf\"ur hat sie \"uber ihre Attribute Zugriff auf die Funktionen f\"ur Ein- und Ausgabe, die Berechnung und die zurzeit eingelesenen Daten. Auch die Anzahl der 
+Iterationen, die berechnet werden sollen, werden in der Klasse Main gespeichert.
+Das zeilenweise Einlesen der Eingabedatei ist in der Klasse \colorbox{lightgray}{InputReader} in der Methode \colorbox{lightgray}{read} implementiert, die ein Objekt der
+Container-Klasse \colorbox{lightgray}{Karte} zur\"uckgibt. In einem Objekt von Karte sind die Minima und Maxima des aktuellen Wertebereichs, sowie alle Informationen \"uber alle eingelesenen L\"ander und die Bezeichnung der Kennzahl gespeichert.
+S\"amtliche Informationen \"uber ein \colorbox{lightgray}{Land} werden in der gleichnamigen Klasse gespeichert. Diese sind jeweils das Autokennzeichen des Landes, die Nachbarlaender, welche in einer Liste abgelegt werden,
+der Radius des Kreises, der sich aus der ebenfalls gespeicherten Kennzahl ergibt und die Summe aller wirkenden Anziehungs- und Abstossungskr\"afte, die jeweils w\"ahrend einer Iteration gespeichert werden.
+Der Kern des Programms, befindet sich in der Klasse \colorbox{lightgray}{Berechnung} bzw. \colorbox{lightgray}{Standardberechnung}. Hier wird in der Methode \colorbox{lightgray}{berechne}, die den Hauptalgorithmus implementiert die \glqq eigentliche\grqq{}
+Berechnung der neuen Kreismittelpunkte durchgef\"uhrt. Der Hauptalgorithmus greift zus\"atzlich auf die Hilfsmethoden \colorbox{lightgray}{voriteration}, \colorbox{lightgray}{normVektor} und \colorbox{lightgray}{distance} zu.
 
 \subsection{Ablauf Eingabe}
+Das Einlesen der Eingabedatei l\"auft wie folgt ab:\\
+Zuerst wir die Eingabedatei zum Lesen ge\"offnet. Zeilenweise wird nun der Inhalt der Datei eingelesen. Das Format der Datei muss dabei dem vorgegebenen Format entsprechen (vgl. Punkt 1.1 Eingabedatei).
+\"Uber eine Z\"ahlvariable wird bestimmt, welche Informationen als n\"achstes eingelesen werden. Zu Beginn hat diese Z\"ahlvariable den Wert 0.
+Wenn die Variable 0 ist, muss die n\"achste Zeile die erste Zeile der Datei sein. Diese enth\"alt die Bezeichnung der Kenngr\"osse und wird in eine tempor\"are Variable gespeichert und anschliessend erh\"oht sich der Z\"ahler um 1.
+Bei jedem Kommentar wird der Z\"aehler ebenfalls erh\"oht. Da sich zwischen der ersten Zeile und dem Einlesen der L\"ander ein Kommentar befindet, hat der Z\"ahler beim Einlesen der L\"ander den Wert 2.
+Wenn also der Z\"ahler gleich 2 ist, werden die L\"ander nacheinander eingelesen. Die Zeile wird gesplittet, sodass in einer Liste alle Informationen (Kennzeichen, Kennzahl, L\"angen- und Breitengrad) einzeln vorliegen.
+Hier wird nun \"uberpr\"uft, ob die angegebenen Werte korrekt sind, also ob die Kennzahl gr\"osser als 1 ist, L\"angen- und Breitengrade im entsprechenden Intervall liegen usw. 
+Wenn nicht, wird ein Fehler ausgel\"ost, der das Programm mit einer Meldung an den Benutzer beendet. Sind alle Werte korrekt, wird ein neues Objekt der Klasse \colorbox{lightgray}{Land} erzeugt, das dann in
+einer L\"anderliste zwischengespeichert wird. Dies l\"auft f\"ur alle L\"ander gleich ab.
+Nach den L\"andern folgt ein Kommentar, der den Z\"ahler auf 3 erh\"oht. Das bedeutet, dass als n\"achstes die L\"anderbeziehungen eingelesen werden.
+Hier wird f\"ur jede Zeile am Doppelpunkt aufgeteilt zwischen Ausgangsland und dessen Nachbarn. Im Anschluss werden dem Ausgangsland seine Nachbarn zugeordnet und
+gleichzeitig jedem Nachbarn das Ausgangsland als Nachbar zugeordnet.\\
+Aus der L\"anderliste und der Bezeichnung der Kenngr\"osse wird ein Objekt der Klasse Karte erzeugt. Dieses wird zur\"uckgegeben.
 
+\begin{center}
+\vbox{
+	Methode read() aus Klasse InputReader\\
+	\includegraphics[scale=0.5]{read.png}
+}
+\end{center}
 \subsection{Ablauf Ausgabe}
 
 \subsection{Ablauf Hauptalgorithmus}
@@ -229,6 +256,12 @@ Andere Werte werden nicht akzeptiert.
 \subsubsection{TODO}
 
 \subsection{Sequenzdiagramm}
+
+\vbox{
+	\begin{center}
+		\includegraphics[width=\linewidth]{Sequenzdiagramm.png}
+	\end{center}
+}
 
 \section{\"Anderungen zum Montagsteil}
 
@@ -246,42 +279,66 @@ Ausblick-Ideen: GUI, Parallelisierung, weitere Features
 
 \section{Benutzeranleitung}
 \subsection{Ordnerstruktur}
-Die .zip Datei beinhaltet die Sourcen, das ausf\"uhrbare Programm, Testskript und diese Dokumentation. Außerdem sind die Ordner ''docu'' und ''tests'' enthalten. In dem ''docu'' Ordner befindet sich ein Unterordner ''html'', in welche sich die mit doxygen generierte Dokumentation des Codes befindet. Zum Anschauen dieser Dokumentation muss die index.html ge\"offnet werden. In dem tests Ordner befinden sich die Testf\"alle.
+Die .zip Datei beinhaltet die Sourcen mit der Main.py als Hauptklasse zum Ausf\"uhren, ein Testskript und diese Dokumentation. Außerdem sind die Ordner \glqq docu\grqq{} und \glqq tests\grqq{} enthalten.
+Im \glqq docu\grqq{}-Ordner befindet sich ein PDF-Dokument mit der API, die mit epydoc generiert wurde. In dem tests Ordner befinden sich die Testf\"alle.\\
+\vspace{2mm}
+Ordnerstruktur:\\
+\mybox{background}{
+	- LandkartenDoku.pdf (dieses Dokument)\\
+	- readme.md (Eine Benutzeranleitung im Markdown Format)\\
+	- run\_all\_tests.py (Das Skript zum Ausf\"uhren der Tests)\\
+	- Main.py (Die Hauptklasse)\\
+	- Land.py\\
+	- Karte.py\\
+	- Berechnung.py\\
+	- InputReader.py\\
+	- OutputWrite.py\\
+	- \textbackslash doc\\
+	- \textbackslash tests
+}
 \subsection{Voraussetzungen}
+Zum Ausf\"uhren wird \href{https://www.python.org/}{Python} ben\"otigt. Das Programm wurde sowohl mit Version 2.7 als auch 3.7.3 getestet. Python ist frei benutzbar und l\"auft unter der
+\textit{Python-Software-Foundation-Lizenz}, die kompatibel mit der GNU General Public License ist.\\
+Des weiteren muss zum Ausf\"uhren die unter der BSD-Lizenz ver\"offentlichte Bibliothek \href{https://www.numpy.org/}{NumPy} installiert sein.
+Falls diese nicht installiert ist, kann sie \"uber die Kommandozeile einfach installiert werden:\\
+\colorbox{lightgray}{pip install numpy}\\
 
-Compiler und Umgebungen
-
-Python (mindestens 2.7.15, empfohlen 3.7.3), (installationsskript, testskript) (Python-Software-Foundation-Lizenz)
-numpy (berkeley software distribution)
-optional: Gnuplot (Gnuplot Copyright)
-
-C++/Java/Python für das Programm
-
-%TODO Version angeben
+Zum Erstellen der Grafiken kann optional das Programm Gnuplot installiert werden.
 
 \subsection{Laufzeitumgebung}
+Die Software wurde auf Windows 10 Education und Ubuntu Bionic Beaver 18.04 LTS auf 64-bit entwickelt. Als Entwicklungsumgebung wurde \textit{Visual Studio Code Version 1.33}
+mit der mitgelieferten Python Extension benutzt. 
 
 \subsection{Installation}
 
 %if python
-Eine Installation ist nicht notwendig, weil das Programm in der Programmiersprache Python entwickelt wurde. Python muss nicht übersetzt werden, da es eine interpretierte Sprache ist, die zur Laufzeit vom Interpreter kompiliert wird.
+Eine Installation ist nicht notwendig, weil die benutzte Sprache Python eine Interpretersprache ist. Die Dateien werden zur Laufzeit vom Interpreter in ausf\"uhrbaren Code \"ubersetzt.
+
 
 \subsection{Ausführen des Programms}
-F\"ur den Aufruf kann folgender Befehl verwendet werden:
-python Main.py -i INPUT [-n ITERATIONEN | -s Skalierungsfaktor | -o OUTPUT]
-
-
 \subsubsection{Direkt}
+F\"ur den direkten Aufruf kann folgender Befehl verwendet werden:\\
+\colorbox{lightgray}{python Main.py -i INPUT [-n ITERATIONEN $|$ -s Skalierungsfaktor $|$ -o OUTPUT]}
 
 \subsubsection{Mit dem Skript}
-
+Mit dem Skript \colorbox{lightgray}{run\_all\_tests.py} k\"onnen alle in einem Ordner liegenden Tests ausgef\"uhrt werden. Als erstes Argument wird der Pfad zur Datei \colorbox{lightgray}{Main.py} erwartet. Das zweite Argument
+ist optional der Pfad zu einem Ordner mit Inputdateien. Falls der angegebene Pfad nicht erreicht werden kann, wird stattdessen der lokale Ordner \colorbox{lightgray}{tests}
+verwendet. Das Skript f\"uhrt die Berechnung mit den Standardparametern aus, die i.d.R. ein passables Testergebnis liefern.\\
+Windows: \colorbox{lightgray}{python .$\backslash$ run\_all\_tests.py .$\backslash$Main.py}\\
+Linux: \colorbox{lightgray}{python ./run\_all\_tests.py ./Main.py}\\
 \subsection{Restriktionen beim Dateinamen}
 Die Datei muss dem benutzten Betriebssystem entsprechend einen g\"ultigen Dateinamen besitzen.
 Sie kann sowohl \"uber den relativen Pfad ausgehend vom Ordner des Aufrufs als auch \"uber den absoluten Pfad angegeben werden.
 Die Pfade m\"ussen auch dem Format des benutzten Betriebssystem entsprechen.
-Beispiele:
-Windows: python \glqq C:$\backslash$Users$\backslash$\grqq{}
-Linux: python /home/user/documents/gropro/Main.py
+Beispiele f\"ur Dateipfade:
+\vspace{3mm}
+Absoluter Pfad:\\
+\colorbox{lightgray}{Windows: python \glqq C:$\backslash$Users$\backslash$User$\backslash$Documents$\backslash$gropro$\backslash$Main.py\grqq{}}\\
+\colorbox{lightgray}{Linux: python /home/user/documents/gropro/Main.py}\\
+Relativer Pfad:\\
+\colorbox{lightgray}{Windows: python .$\backslash$Main.py}\\
+\colorbox{lightgray}{Linux: python ./Main.py}
+
 
 \subsection{Anmerkung}
 
@@ -306,8 +363,22 @@ Linux: python /home/user/documents/gropro/Main.py
 \subsection{Optional: Code Coverage Tests, Performance o.ae}
 
 \section{Source-Code}
-\subsection{Datei.x}
+\begin{center}
 
+\vbox{
+Land.py\\
+\includegraphics[width=\linewidth]{klasse_land_source.png}
+}
+\vbox{
+OutputWrite.py\\
+\includegraphics[width=\linewidth]{klasse_outputwrite_source.png}
+}
+\vbox{
+Karte.py\\
+\includegraphics[scale=0.8, width=0.7\linewidth]{klasse_karte_source.png}
+}
+
+\end{center}
 
 \lstset{
 	basicstyle=\scriptsize\ttfamily,
@@ -322,7 +393,5 @@ Linux: python /home/user/documents/gropro/Main.py
 	breaklines=true
 }
 
-\section{Code}
-\subsection{main.cpp}
 %\lstinputlisting[language=c++]{../main.cpp}
 \end{document}
