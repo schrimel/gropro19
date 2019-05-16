@@ -17,8 +17,8 @@ def main():
         exec_str = sys.argv[1] + ' "' + full_path + '" "' + full_path + '.gpl"'
         exec_str = "python "  + sys.argv[1] + " -i " + full_path + " -o " + full_path + ".gpl"
         print("Starte: " + exec_str)
-        os.system(exec_str)
-
+        code = os.system(exec_str)
+        print("Test beendet mit return code " + code)
 
 if __name__ == '__main__':
     main()

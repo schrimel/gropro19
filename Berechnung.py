@@ -5,6 +5,9 @@ from Land import Land
 from abc import ABC, abstractmethod
 class Berechnung:
     def distance(self, landA, landB):
+        """
+        Berechnet den Kreisabstand zwischen landA und landB anhand der Radien und des direkten Abstandes
+        """
         arrA = [landA.xPos, landA.yPos]
         vektorA = np.array(arrA, dtype=float)
         vektorB = np.array([landB.xPos, landB.yPos], dtype=float)
@@ -14,9 +17,16 @@ class Berechnung:
     
     @abstractmethod
     def berechne(self, karte):
+        """
+        Abstrakte Methode der Berechnung
+        Muss in der abgeleiteten Klasse implementiert werden
+        """
         pass
 
     def normVektor(self, landA, landB):
+        """
+        Berechnet den normierten Vektor zwischen den Mittelpunkten von landA und landB
+        """
         vektorA = np.array([landA.xPos, landA.yPos], dtype=float)
         vektorB = np.array([landB.xPos, landB.yPos], dtype=float)
         return np.subtract(vektorA, vektorB) / LA.norm(np.subtract(vektorA, vektorB))
@@ -24,6 +34,9 @@ class Berechnung:
 
 class StandardBerechnung(Berechnung):
     def mittelwertRadien(self, karte):
+        """
+        Berechnet den Mittelwert aller Radien
+        """
         sum = 0
         count = 0
         for l in karte.laenderliste:
@@ -33,6 +46,9 @@ class StandardBerechnung(Berechnung):
         
 
     def voriteration(self, karte, faktor=0):
+        """
+        Berechnung der Voriteration durch Skalieren der Mittelpunkte und Verkleinern der Radien
+        """
         if(faktor == 0):
             faktor = self.mittelwertRadien(karte)
         rMin = 1e15
@@ -45,6 +61,9 @@ class StandardBerechnung(Berechnung):
             l.radius = 2*l.radius / rMin
 
     def berechne(self, karte):
+        """
+        Berechnet einen Iterationsschritt fuer alle Laender in karte
+        """
         g = 0.3
         liste = karte.laenderliste
         for i in range(0,len(liste)):

@@ -2,18 +2,28 @@ import re
 from Karte import Karte
 
 class OutputWriter:
-    mFilename = ""
-    mTemplate = ""
-    mKarte = Karte([], "")
-    mIterationen = 0
+    mFilename = "" #: Dateipfad der Ausgabedatei
+    mTemplate = "" #: Dateipfad des Templates
+    mKarte = Karte([], "") #: Karte die ausgegeben werden soll
+    mIterationen = 0 #: Anzahl der berechneten Iterationen
 
     def __init__(self, iFilename, iTemplate, iKarte, iIterationen):
+        """
+        Konstruktor fuer die Ausgabe
+        iFilename - Dateipfad fuer die Ausgabedatei
+        iTemplate - Template mit allgemeiner Form
+        iKarte - berechnete Karte zur Ausgabe
+        iIterationen - Anzahl der durchgefuehrten Iterationen
+        """
         self.mFilename = iFilename
         self.mTemplate = iTemplate
         self.mKarte = iKarte
         self.mIterationen = iIterationen
 
     def write(self):
+        """
+        Schreibt die Datei
+        """
         # Read contents from file as a single string
         file_handle = open(self.mTemplate, 'r')
         file_string = file_handle.read()

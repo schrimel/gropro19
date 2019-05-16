@@ -12,6 +12,7 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{mdframed}
 
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 \hypersetup{
@@ -110,7 +111,9 @@ Die Informationen sind jeweils durch Whitespace, Tab oder Leerzeichen, getrennt.
 Auf die Liste der Staaten folgt ein Kommentar mit dem Hinweis, dass im Anschluss die Nachbarschaftsbeziehungen folgen. Jene folgen ebenfalls zeilenweise.
 Die Nachbarschaftsbeziehungen werden bidirektional angegeben, d.h. ist ein Staat A ein Nachbar von Staat B, so ist automatisch auch B Nachbar von A.
 Das Format der Nachbarschaftsbeziehungen sieht wie folgt aus:
-\mybox{background}{$<$Kennz. Ausgangsland$>$: $<$Kennzeichen Nachbar 1$>$ $<$...$>$ $<$Kennzeichen Nachbar N$>$}
+\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
+$<$Kennz. Ausgangsland$>$: $<$Kennzeichen Nachbar 1$>$ $<$...$>$ $<$Kennzeichen Nachbar N$>$
+\end{mdframed}
 Die einzelnen Nachbarstaaten sind ebenfalls durch Whitespace (Leerzeichen oder Tab) getrennt. 
 Grundsätzlich wird angenommen, dass das Format der Eingabedatei syntaktisch korrekt ist. Die Syntax wird daher nicht mehr auf Korrektheit \"uberpr\"uft.
 
@@ -119,7 +122,7 @@ Grundsätzlich wird angenommen, dass das Format der Eingabedatei syntaktisch kor
 \textbf{Beispiel:}\\
 Die Eingabedatei vom vorherigen Beispiel k\"onnte wie folgt aussehen:\\
 \vspace{5mm}
-\mybox{background}{
+\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
 Bierkonsum\\
 \# Staat Fläche Längengrad Breitengrad\\
 D 8692 10.0 51.3\\
@@ -140,27 +143,26 @@ F: CH\\
 CH: A\\
 A: CZ\\
 CZ: PL
-}
+\end{mdframed}
 \subsection{Ausgabedatei}
 Nach dem Einlesen der oben beschriebenen Daten und der Berechnung der Landkarte soll eine Ausgabe mit den berechneten Werten erstellt werden.
 Diese soll dem folgenden Format gen\"ugen:
-\mybox{background}{
-reset
-set xrange [$<$xmin$>$:$<$xmax$>$]
-set yrange [$<$ymin$>$:$<$ymax$>$]\\
-set size ratio 1.0\\
-set title "$<$Name des Kennwertes$>$, Iteration: $<$nr$>$"\\
-unset xtics\\
-unset ytics\\
-\$data $<<$ EOD\\
-$<$Liste aus $<$xpos$>$ $<$ypos$>$ $<$radius$>$ $<$autokennzeichen$>$ $<$id$>$ $>$\\
-EOD\\
-plot \textbackslash\\
-'\$data' using 1:2:3:5 with circles lc var notitle, \textbackslash\\
-'\$data' using 1:2:4:5 with labels font \grqq{}arial,9\grqq{}  tc variable notitle\\
-}
-\\
-\\
+\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
+	reset
+	set xrange [$<$xmin$>$:$<$xmax$>$]
+	set yrange [$<$ymin$>$:$<$ymax$>$]\\
+	set size ratio 1.0\\
+	set title "$<$Name des Kennwertes$>$, Iteration: $<$nr$>$"\\
+	unset xtics\\
+	unset ytics\\
+	\$data $<<$ EOD\\
+	$<$Liste aus $<$xpos$>$ $<$ypos$>$ $<$radius$>$ $<$autokennzeichen$>$ $<$id$>$ $>$\\
+	EOD\\
+	plot \textbackslash\\
+	'\$data' using 1:2:3:5 with circles lc var notitle, \textbackslash\\
+	'\$data' using 1:2:4:5 with labels font \grqq{}arial,9\grqq{}  tc variable notitle\\
+\end{mdframed}
+\vspace{5mm}
 Die Intervalle \colorbox{lightgray}{[$<$xmin$>$:$<$xmax$>$]} und \colorbox{lightgray}{[$<$ymin$>$:$<$ymax$>$]} geben jeweils die kleinste und gr\"osste x- bzw. y-Koordinate der Landkarte an.
 \colorbox{lightgray}{$<$Name des Kennwertes$>$} gibt den Namen des Kennwertes an, der in der Eingabedatei in der 1. Zeile angegeben wird.
 Die Anzahl der Iterationen wird in \colorbox{lightgray}{$<$nr$>$} angegeben.
@@ -172,7 +174,7 @@ Farbgebung in Gnuplot erforderlich ist.\\
 \textbf{Beispiel:}\\
 \vbox{
 Die Ausgabe f\"ur das Beispiel \glqq{}Bierkonsum\grqq{} k\"onnte wie folgt aussehen:\\
-\mybox{background}{
+\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
 reset\\
 set xrange[122.2902588107926:332.4746754411094]\\
 set yrange[990.7016847962033:1200.88610142652]\\
@@ -195,7 +197,7 @@ EOD\\
 plot \textbackslash \\
 '\$data' using 1:2:3:5 with circles lc var notitle, \textbackslash \\
 '\$data' using 1:2:4:5 with labels font \grqq{}arial,9\grqq{} tc variable notitle\\
-}
+\end{mdframed}
 }
 \subsection{Spezial- und Sonderf\"alle bei der Eingabe}
 Syntaxfehler in der Eingabedatei sind laut Aufgabenstellung ausgeschlossen. Daher benutze ich als Format f\"ur meine Eingabedatei restriktiv das unter Punkt 1.1 angegebene Format,
@@ -374,8 +376,11 @@ Das Programm funktioniert wie in der Aufgabenstellung vorgegeben: Es liest die s
 Iterationen und schreibt das Ergebnis in eine Ausgabedatei. Intern werden durch einen objektorientierten Ansatz Ein-/Ausgabe und Funktionalit\"at sauber voneinander getrennt und \"uber eine Abstrahierung
 der Klasse Berechnung ist es leicht m\"oglich weitere Klassen zur Berechnung abzuleiten.
 
-Ausblick-Ideen: GUI, Parallelisierung, weitere Features
-
+Das Programm liesse sich sehr gut mit einer grafischen Benutzeroberfl\"ache erweitern. Diese k\"onnte unter anderem einen Plotter beinhalten, der die berechneten Daten direkt anzeigt. Dies w\"urde den bisher notwendigen Zwischenschritt einsparen,
+nach der Berechnung durch mein Programm noch Gnuplot aufrufen zu m\"ussen, um den Output zu visualisieren. Der Plotter k\"onnte zus\"atzlich die Funktion beinhalten,
+die Landkarte zu exportieren oder noch manuelle \"Anderungen durchzuf\"uhren. Performance-technisch l\"asst sich das Programm ebenfalls noch verbessern. Dies k\"onnte \"uber ein effizienteres Iterationsverfahren oder 
+m\"oglicherweise auch durch Parallelisierung realisiert werden. Allerdings w\"are letzteres erst ab einer hohen Zahl an Iterationen bzw. bei einer deutlich h\"oheren Anzahl Staaten erforderlich, damit das Programm nicht
+ungewollt durch Overhead und Synchronisierung beim parallelen Aufbau verlangsamt wird.
 
 \section{Benutzeranleitung}
 \subsection{Ordnerstruktur}
@@ -383,7 +388,7 @@ Die .zip Datei beinhaltet die Sourcen mit der Main.py als Hauptklasse zum Ausf\"
 Im \glqq docu\grqq{}-Ordner befindet sich ein PDF-Dokument mit der API, die mit epydoc generiert wurde. In dem tests Ordner befinden sich die Testf\"alle.\\
 \vspace{2mm}
 Ordnerstruktur:\\
-\mybox{background}{
+\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
 	- LandkartenDoku.pdf (dieses Dokument)\\
 	- readme.md (Eine Benutzeranleitung im Markdown Format)\\
 	- run\_all\_tests.py (Das Skript zum Ausf\"uhren der Tests)\\
@@ -395,7 +400,7 @@ Ordnerstruktur:\\
 	- OutputWrite.py\\
 	- \textbackslash doc\\
 	- \textbackslash tests
-}
+\end{mdframed}
 \subsection{Voraussetzungen}
 Zum Ausf\"uhren wird \href{https://www.python.org/}{Python} ben\"otigt. Das Programm wurde sowohl mit Version 2.7 als auch 3.7.3 getestet. Python ist frei benutzbar und l\"auft unter der
 \textit{Python-Software-Foundation-Lizenz}, die kompatibel mit der GNU General Public License ist.\\
@@ -406,7 +411,7 @@ Falls diese nicht installiert ist, kann sie \"uber die Kommandozeile einfach ins
 Zum Erstellen der Grafiken kann optional das Programm Gnuplot installiert werden.
 
 \subsection{Laufzeitumgebung}
-Die Software wurde auf Windows 10 Education und Ubuntu Bionic Beaver 18.04 LTS auf 64-bit entwickelt. Als Entwicklungsumgebung wurde \textit{Visual Studio Code Version 1.33}
+Die Software wurde auf den Betriebssystemen Windows 10 Education, OpenSUSE 13.1 und Ubuntu Bionic Beaver 18.04 LTS auf 64-bit getestet und entwickelt. Als Entwicklungsumgebung wurde \textit{Visual Studio Code Version 1.33}
 mit der mitgelieferten Python Extension benutzt. 
 
 \subsection{Installation}
@@ -424,8 +429,8 @@ F\"ur den direkten Aufruf kann folgender Befehl verwendet werden:\\
 Mit dem Skript \colorbox{lightgray}{run\_all\_tests.py} k\"onnen alle in einem Ordner liegenden Tests ausgef\"uhrt werden. Als erstes Argument wird der Pfad zur Datei \colorbox{lightgray}{Main.py} erwartet. Das zweite Argument
 ist optional der Pfad zu einem Ordner mit Inputdateien. Falls der angegebene Pfad nicht erreicht werden kann, wird stattdessen der lokale Ordner \colorbox{lightgray}{tests}
 verwendet. Das Skript f\"uhrt die Berechnung mit den Standardparametern aus, die i.d.R. ein passables Testergebnis liefern.\\
-Windows: \colorbox{lightgray}{python .$\backslash$ run\_all\_tests.py .$\backslash$Main.py}\\
-Linux: \colorbox{lightgray}{python ./run\_all\_tests.py ./Main.py}\\
+Windows: \colorbox{lightgray}{python .$\backslash$ run\_all\_tests.py .$\backslash$Main.py $<$folder$>$}\\
+Linux: \colorbox{lightgray}{python ./run\_all\_tests.py ./Main.py $<$folder$>$}\\
 \subsection{Restriktionen beim Dateinamen}
 Die Datei muss dem benutzten Betriebssystem entsprechend einen g\"ultigen Dateinamen besitzen.
 Sie kann sowohl \"uber den relativen Pfad ausgehend vom Ordner des Aufrufs als auch \"uber den absoluten Pfad angegeben werden.
@@ -443,10 +448,192 @@ Relativer Pfad:\\
 \subsection{Anmerkung}
 
 \section{Tests}
+In diesem Kapitel werden alle Tests behandelt. Da die Ergebnisse je nach Anzahl der Iterationen und mit anderen Skalierungsfaktoren anders ausfallen k\"onnen, werden
+folgende Parameter grunds\"atzlich f\"ur alle Tests angenommen:
+\begin{itemize}
+\item Iterationen: 100
+\item Skalierungsfaktor Mittelpunkte: $ \delta = 4 $
+\item Skalierungsfaktor Radien: $ \phi = 2 / rMin und rMin = kleinster Radius$ 
+\end{itemize}
+
+\subsection{\"Aquivalenzklassen}
+
+Im folgenden sind die g\"ultigen und ung\"ultigen \"Aquivalenzklassen dargestellt, auf denen die Tests aufbauen:\\
+
+\begin{table}[!htb]
+\resizebox{\linewidth}{!}{
+\begin{tabular}{|l|l|l|}
+\hline
+Wert                      & Gültige Äquivalenzklassen                                         & Ungültige Äquivalenzklassen                                                                                                          \\ \hline
+Längengrad                & 1) Längengrad ist in (-180;180{]}                                 & \begin{tabular}[c]{@{}l@{}}2) Längengrad ist in (180;inf)\\ 3) Längengrad ist in (-inf;-180{]}\end{tabular}                          \\ \hline
+Breitengrad               & 4) Breitengrad ist in {[}-90;90{]}                                & \begin{tabular}[c]{@{}l@{}}5) Breitengrad ist in (-inf;-90)\\ 6) Breitengrad ist in (90;inf)\end{tabular}                            \\ \hline
+Kennzeichen               & 7) nur verschiedene Kennzeichen bestehend aus max. Großbuchstaben & \begin{tabular}[c]{@{}l@{}}8) doppelte Kennzeichen\\ 9) Kennzeichen zu lang\\ 10) Kennzeichen enthält ungültige Zeichen\end{tabular} \\ \hline
+(Längengrad, Breitengrad) & 11) nur verschiedene Positionen                                   & 12) doppelte Positionen                                                                                                              \\ \hline
+Nachbarschaften           & 15) doppelte Länderbeziehungen                                    & \begin{tabular}[c]{@{}l@{}}16) Nachbarschaften von nicht definierten Ländern\\ 17) Land ohne Nachbarschaftsbeziehung\end{tabular}    \\ \hline
+Kennwert                  & 18) Kennwert ist in {[}1;maxInt-1{]}                              & 19) Kennwert ist in (-inf;0{]} oder {[}maxInt;inf)                                                                                   \\ \hline
+\end{tabular}}
+\end{table}
 
 \subsection{IHK Tests}
+\subsubsection{IHK\_Beispiel\_01}
+	\textbf{Eingabedatei:}
+	\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
+	Flaeche der Staaten\\
+	\# Staat Fläche Längengrad Breitengrad\\
+	D 357 10.0 51.3\\
+	NL 42 5.3 52.2\\
+	B 33 4.8 50.7\\
+	L 3 6.1 49.8\\
+	F 544 2.8 47.4\\
+	CH 41 8.2 46.9\\
+	A 84 14.2 47.6\\
+	CZ 79 15.3 49.8\\
+	PL 313 18.9 52.2\\
+	DK 43 9.6 56.0\\
+	\# Nachbarschaften\\
+	D: NL B L F CH A CZ PL DK\\
+	NL: B\\
+	L: F\\
+	F: CH\\
+	CH: A\\
+	A: CZ\\
+	CZ: PL
+	\end{mdframed}
 
-\subsubsection{IHK Example 01 etc.}
+\vspace{5mm}
+	\textbf{Erwartete Ausgabe:}
+	\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
+		reset\\
+		set xrange[700.2517724484413:827.7002402768413]\\
+		set yrange[856.8647214556818:984.3131892840818]\\
+		set size ratio 1.0\\
+		set title "Flaeche der Staaten, Iteration: 100"\\
+		unset xtics\\
+		unset ytics\\
+		\$data $<<$ EOD\\
+		766.7834981016138 930.3185429627034 21.81742422927143 D 0\\
+		742.555557198933 946.8167634812557 7.4833147735478835 NL 1\\
+		738.4945723703775 933.3089756697666 6.6332495807108 B 2\\
+		743.4807756786114 925.5870070124199 2.0 L 3\\
+		727.1837856174069 901.7272715950642 26.93201316896554 F 4\\
+		761.4598380217082 901.6197768434589 7.393691004272945 CH 5\\
+		779.3567011368073 900.4377222425624 10.583005244258363 A 6\\
+		794.7022000752384 914.5003211738591 10.263202878893768 CZ 7\\
+		807.271502348782 942.4728444996451 20.42873792805942 PL 8\\
+		759.5115694505225 958.8107745192644 7.571877794400365 DK 9\\
+		EOD\\
+		plot \textbackslash \\
+		'\$data' using 1:2:3:5 with circles lc var notitle, \textbackslash \\
+		'\$data' using 1:2:4:5 with labels font "arial,9" tc variable notitle
+\end{mdframed}
+
+\vspace{5mm}
+\textbf{Erkl\"arung:}\\
+Das erste IHK Beispiel. Die erwarteten Werte der Ausgabe entsprechen jedoch den Werten, die man f\"ur die Ausgabe meines Programms erwartet.
+Das Beispiel sollte funktionieren.\\
+
+\subsubsection{IHK\_Beispiel\_02}
+
+	\textbf{Eingabedatei:}
+	\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
+	Bierkonsum\\
+	\# Staat Fläche Längengrad Breitengrad\\
+	D 8692 10.0 51.3\\
+	NL 1156 5.3 52.2\\
+	B 781 4.8 50.7\\
+	L 80 6.1 49.8\\
+	F 2077 2.8 47.4\\
+	CH 440 8.2 46.9\\
+	A 945 14.2 47.6\\
+	CZ 1573 15.3 49.8\\
+	PL 3724 18.9 52.2\\
+	DK 360 9.6 56.0\\
+	\# Nachbarschaften\\
+	D: NL B L F CH A CZ PL DK\\
+	NL: B\\
+	L: F\\
+	F: CH\\
+	CH: A\\
+	A: CZ\\
+	CZ: PL
+\end{mdframed}
+\vspace{5mm}
+	\textbf{Erwartete Ausgabe:}
+	\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
+		reset\\
+		set xrange[730.0918468719356:813.7048298686099]\\
+		set yrange[889.3127574556308:972.9257404523053]\\
+		set size ratio 1.0\\
+		set title "Bierkonsum, Iteration: 100"\\
+		unset xtics\\
+		unset ytics\\
+		\$data $<<$ EOD\\
+		765.5758599792373 934.3733238909471 20.847062143141414 D 0\\
+		737.6944779954348 940.0307359422596 7.602631123499284 NL 1\\
+		739.702532976425 926.3254082357182 6.248999919987197 B 2\\
+		746.705927195248 921.4915070307936 2.0 L 3\\
+		747.2660866575683 909.3129805429031 10.190682018393076 F 4\\
+		762.1460577992617 909.0668195802234 4.690415759823429 CH 5\\
+		773.6474042905288 907.8537821312843 6.873863542433759 A 6\\
+		787.8317016409018 914.6836660759692 8.868483523128404 CZ 7\\
+		800.0593177858773 933.5882178735943 13.64551208273255 PL 8\\
+		EOD																	\\
+		plot \textbackslash 												\\
+	'\$data' using 1:2:3:5 with circles lc var notitle, \textbackslash 	\\
+	'\$data' using 1:2:4:5 with labels font \grqq{}arial,9\grqq{} tc variable notitle
+\end{mdframed}
+\vspace{5mm}
+\textbf{Erkl\"arung:}
+Das zweite IHK Beispiel. Die erwarteten Werte der Ausgabe entsprechen jedoch den Werten, die man f\"ur die Ausgabe meines Programms erwartet.
+Das Beispiel sollte funktionieren.\\
+
+\subsubsection{IHK\_Beispiel\_03}
+\vspace{5mm}
+	\textbf{Erwartete Ausgabe:}
+	\begin{mdframed}[linewidth=0pt, backgroundcolor=background, innertopmargin=10pt, innerbottommargin=10pt]
+		reset\\
+		set xrange[668.4407470958473:848.2649929297002]\\
+		set yrange[818.4754105753512:998.2996564092041]\\
+		set size ratio 1.0\\
+		set title "Flaeche der Staaten, Iteration: 100"\\
+		unset xtics\\
+		unset ytics\\
+		\$data $<<$ EOD\\
+		759.9117024899185 946.1176442974413 21.81742422927143 D 0\\
+		733.0942744867059 957.8497368903509 7.4833147735478835 NL 1\\
+		731.840011226166 943.9370995079238 6.6332495807108 B 2\\
+		737.8400401507139 937.5561516306295 2.0 L 3\\
+		725.9243677924528 911.317812659253 26.93201316896554 F 4\\
+		761.0075586818753 916.6965557180389 7.393691004272945 CH 5\\
+		780.0538973319441 918.0048301407443 10.583005244258363 A 6\\
+		786.1546923528323 935.4322086939553 10.263202878893768 CZ 7\\
+		802.1041118876469 958.2429172958114 20.42873792805942 PL 8\\
+		752.1854360464978 974.4605381891093 7.571877794400365 DK 9\\
+		710.2859001757952 860.7169973194165 25.974346318370873 E 10\\
+		679.5162455797381 881.3404821943074 11.075498483890765 P 11\\
+		766.3352407050984 889.6593175574536 20.03330560175563 I 12\\
+		786.5257039557389 903.8961899441882 5.163977794943223 SLO 13\\
+		799.464057507478 927.9783749617561 8.082903768654761 SK 14\\
+		801.1512865930757 909.9497349607547 11.135528725660043 H 15\\
+		793.9873976605014 892.3417594347463 8.717797887081348 HR 16\\
+		796.7929994273657 876.4212667424503 8.24621125123532 BIH 17\\
+		812.9140750583823 891.1920093802989 10.832051206181282 SRB 18\\
+		805.982036441863 880.6881277561976 4.320493798938574 MNE 19\\
+		821.1323977915398 878.0028753209402 5.887840577551898 MK 20\\
+		811.3382172011133 872.7929306319606 6.21825270205921 AL 21\\
+		829.221989968858 914.5040528201025 17.435595774162696 RO 22\\
+		836.0994678691037 885.7968793173857 12.16552506059644 BG 23\\
+		827.5368916175953 861.1035066347839 13.2664991614216 GR 24\\
+		EOD
+		plot \textbackslash \\
+		'\$data' using 1:2:3:5 with circles lc var notitle, \textbackslash \\
+		'\$data' using 1:2:4:5 with labels font "arial,9" tc variable notitle
+\end{mdframed}
+
+\vspace{5mm}
+\textbf{Erkl\"arung:}\\
+Das dritte IHK Beispiel. Die erwarteten Werte der Ausgabe entsprechen jedoch den Werten, die man f\"ur die Ausgabe meines Programms erwartet.
+Das Beispiel funktioniert je nach Skalierung besser oder schlechter. Hier ist eine gute Voriteration definitiv erforderlich.\\
 
 \subsection{Funktionierende Tests}
 
@@ -460,8 +647,7 @@ Relativer Pfad:\\
 
 \subsubsection{L01 loremipsum}
 
-\subsection{Optional: Code Coverage Tests, Performance o.ae}
-
+%todo run all tests
 \section{Source-Code}
 \begin{center}
 

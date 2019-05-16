@@ -2,18 +2,24 @@ import numpy as np
 class Karte:
     laenderliste = []
     kennzahlBz = ""
-    xmin = 0.0
-    xmax = 0.0
-    ymin = 0.0
-    ymax = 0.0
+    xmin = 0.0 #: minimaler x-Wert der Karte
+    xmax = 0.0 #: maximaler x-Wert der Karte
+    ymin = 0.0 #: minimaler y-Wert der Karte
+    ymax = 0.0 #: maximaler y-Wert der Karte
 
     def __init__(self, l, kennzBz):
+        """
+        Konstruktor der Klasse Karte bekommt eine Liste an Laendern sowie die Kennzahlbezeichnung
+        """
         self.laenderliste = []
         for land in l:
             self.laenderliste.append(land)
         self.kennzahlBz = kennzBz
 
     def scale(self):
+        """
+        Passt den Wertebereich von x und y so an, dass xmax-xmin = ymax-ymin
+        """
         diffX = self.xmax - self.xmin
         diffY = self.ymax - self.ymin
         if diffY > diffX:
@@ -24,6 +30,9 @@ class Karte:
             self.ymax = self.ymax + 0.5 * (diffX-diffY)
 
     def berechneMinimum(self):
+        """
+        Berechnet die minimalen und maximalen x- und y-Werte der Karte
+        """
         laenderliste = self.laenderliste
         xplus = []
         xminus = []
