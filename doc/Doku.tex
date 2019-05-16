@@ -238,6 +238,7 @@ Andere Werte werden nicht akzeptiert.
 
 \section{Zusammenfassung und Ausblick}
 
+
 Zusammenfassung: Läuft.
 
 Ausblick-Ideen: GUI, Parallelisierung, weitere Features
@@ -266,12 +267,21 @@ C++/Java/Python für das Programm
 Eine Installation ist nicht notwendig, weil das Programm in der Programmiersprache Python entwickelt wurde. Python muss nicht übersetzt werden, da es eine interpretierte Sprache ist, die zur Laufzeit vom Interpreter kompiliert wird.
 
 \subsection{Ausführen des Programms}
+F\"ur den Aufruf kann folgender Befehl verwendet werden:
+python Main.py -i INPUT [-n ITERATIONEN | -s Skalierungsfaktor | -o OUTPUT]
+
 
 \subsubsection{Direkt}
 
 \subsubsection{Mit dem Skript}
 
 \subsection{Restriktionen beim Dateinamen}
+Die Datei muss dem benutzten Betriebssystem entsprechend einen g\"ultigen Dateinamen besitzen.
+Sie kann sowohl \"uber den relativen Pfad ausgehend vom Ordner des Aufrufs als auch \"uber den absoluten Pfad angegeben werden.
+Die Pfade m\"ussen auch dem Format des benutzten Betriebssystem entsprechen.
+Beispiele:
+Windows: python \glqq C:$\backslash$Users$\backslash$\grqq{}
+Linux: python /home/user/documents/gropro/Main.py
 
 \subsection{Anmerkung}
 

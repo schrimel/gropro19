@@ -1,0 +1,9 @@
+Humorlevel der Staaten
+# Staat Humor Längengrad Breitengrad
+NN 420 0.0 0.0
+N01 666 0.0 1.0
+N10 133 1.0 0.0
+NM01 666 0.0 -1.0
+NM10 133 -1.0 0.0
+# Nachbarschaften
+NN: N01 N10 NM01 NM10

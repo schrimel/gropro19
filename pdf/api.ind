@@ -1,0 +1,68 @@
+\begin{theindex}
+
+  \item Berechnung \textit{(module)}, \hyperpage{2}
+    \subitem Berechnung.Berechnung \textit{(class)}, \hyperpage{2}
+      \subsubitem Berechnung.Berechnung.berechne \textit{(method)}, 
+		\hyperpage{2}
+      \subsubitem Berechnung.Berechnung.distance \textit{(method)}, 
+		\hyperpage{2}
+      \subsubitem Berechnung.Berechnung.normVektor \textit{(method)}, 
+		\hyperpage{2}
+    \subitem Berechnung.StandardBerechnung \textit{(class)}, 
+		\hyperpage{2}
+      \subsubitem Berechnung.StandardBerechnung.mittelwerteRadien \textit{(method)}, 
+		\hyperpage{2}
+      \subsubitem Berechnung.StandardBerechnung.voriteration \textit{(method)}, 
+		\hyperpage{2}
+
+  \indexspace
+
+  \item InputReader \textit{(module)}, \hyperpage{3}
+    \subitem InputReader.addNachbarnToLand \textit{(function)}, 
+		\hyperpage{3}
+    \subitem InputReader.InputReader \textit{(class)}, \hyperpage{3}
+      \subsubitem InputReader.InputReader.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{3}
+      \subsubitem InputReader.InputReader.read \textit{(method)}, 
+		\hyperpage{3}
+
+  \indexspace
+
+  \item Karte \textit{(module)}, \hyperpage{4}
+    \subitem Karte.Karte \textit{(class)}, \hyperpage{4}
+      \subsubitem Karte.Karte.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{4}
+
+  \indexspace
+
+  \item Land \textit{(module)}, \hyperpage{5}
+    \subitem Land.Land \textit{(class)}, \hyperpage{5}
+      \subsubitem Land.Land.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{5}
+      \subsubitem Land.Land.\_\_repr\_\_ \textit{(method)}, 
+		\hyperpage{5}
+      \subsubitem Land.Land.\_\_str\_\_ \textit{(method)}, 
+		\hyperpage{5}
+      \subsubitem Land.Land.addNachbar \textit{(method)}, \hyperpage{5}
+      \subsubitem Land.Land.containsNachbar \textit{(method)}, 
+		\hyperpage{5}
+
+  \indexspace
+
+  \item Main \textit{(module)}, \hyperpage{6}
+    \subitem Main.berechneMinimum \textit{(function)}, \hyperpage{6}
+    \subitem Main.Main \textit{(class)}, \hyperpage{6}
+      \subsubitem Main.Main.printUsage \textit{(method)}, \hyperpage{6}
+    \subitem Main.main \textit{(function)}, \hyperpage{6}
+    \subitem Main.scale \textit{(function)}, \hyperpage{6}
+
+  \indexspace
+
+  \item OutputWrite \textit{(module)}, \hyperpage{7}
+    \subitem OutputWrite.OutputWriter \textit{(class)}, \hyperpage{7}
+      \subsubitem OutputWrite.OutputWriter.\_\_init\_\_ \textit{(method)}, 
+		\hyperpage{7}
+      \subsubitem OutputWrite.OutputWriter.write \textit{(method)}, 
+		\hyperpage{7}
+
+\end{theindex}

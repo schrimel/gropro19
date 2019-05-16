@@ -28,6 +28,7 @@ GR 132 22.9 39.5
 # Nachbarschaften
 D: NL B L F CH A CZ PL DK
 NL: B
+B: L F
 L: F
 F: CH E I
 CH: A I

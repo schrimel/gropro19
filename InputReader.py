@@ -31,6 +31,10 @@ class InputReader:
                         raise RuntimeError("Error. Datei '" + self.mFilename + "' enthaelt das gleiche Land doppelt. Das ist nicht erlaubt!\n")
                     if int(splitted[1]) < 1:
                         raise RuntimeError("Error. So schoen Anti-Materie auch ist, leider sind keine negativen Kennzahlen erlaubt. Ausserdem muessen Kennzahlen mindestens den Wert 1 haben.")
+                    if float(splitted[3]) < -180 or float(splitted[3]) > 180:
+                        raise RuntimeError("Error. Der Wert " + splitted[2] + " ist wohl offenkundig ausserhalb des erlaubten Intervalls [-180;180] fuer WGS84 Laengengrade")
+                    if float(splitted[3]) < -90 or float(splitted[3]) > 90:
+                        raise RuntimeError("Error. Der Wert " + splitted[3] + " ist wohl offenkundig ausserhalb des erlaubten Intervalls [-90;90] fuer WGS84 Breitengrade")
                     for l in laender:
                         if l.xPos == splitted[2] and l.yPos == splitted[3]:
                             raise RuntimeError("Error. Die Datei enthaelt Laender mit der gleichen Position. Vatikanstadt oder was?!\n")

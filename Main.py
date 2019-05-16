@@ -66,7 +66,7 @@ def main(arguments):
     scale(karte)
     if(main.mFilename == "<default>"):
         main.mFilename = arguments.input.split(".")[0]
-    main.mOutput = OutputWriter(main.mFilename, "template.txt",main.karte,main.iterationen)
+    main.mOutput = OutputWriter(main.mFilename, "templates/template.txt",main.karte,main.iterationen)
     main.mOutput.write()
     return 0
 
