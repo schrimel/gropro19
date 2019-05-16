@@ -56,7 +56,7 @@ class InputReader:
                 for x in laender:
                     addNachbarnToLand(self, nachbarmap[x], x)
             
-            if not zusammenhaengend(laender[0]):
+            if not zusammenhaengend(laender):
                 raise RuntimeError("Error. Nicht alle Laender haengen zusammen.")
         except IOError:
             sys.stderr.write("Error. Die Datei '" + self.mFilename +"' existiert nicht!\n")
@@ -67,12 +67,12 @@ class InputReader:
         karte = Karte(laender, kennzahlBz)
         return karte
 
-def zusammenhaengend(karte):
-    startland = karte.laender[0]
+def zusammenhaengend(laenderliste):
+    startland = laenderliste[0]
     besucht = []
     besucht.append(startland)
     zusammenhaengendRek(startland, besucht)
-    return len(besucht) == len(karte)
+    return len(besucht) == len(laenderliste)
 
 def zusammenhaengendRek(startland, besucht):
     for n in startland.nachbarlaender:

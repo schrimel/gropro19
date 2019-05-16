@@ -13,7 +13,7 @@ SLO 4 14.7 46.1
 P 6 -8.2 39.6
 H 3 19.2 47.1
 RO 4 25.0 45.9
-AUS 5 -25.2 133.8
+AUS 5 133.8 -25.2 
 # Nachbarschaften
 D: F A DK
 F: E I

@@ -250,10 +250,73 @@ Aus der L\"anderliste und der Bezeichnung der Kenngr\"osse wird ein Objekt der K
 }
 \end{center}
 \subsection{Ablauf Ausgabe}
+F\"ur die Ausgabe wird ein Template eingelesen, das der allgemeinen Form der Aufgabenstellung (Siehe Punkt 1.2 Ausgabedatei) entspricht eingelesen. Alle Tags werden 
+durch die entsprechenden Werte ersetzt, wobei f\"ur den Tag $<$Liste aus ...$>$ ein String erstellt wird, der alle L\"ander enth\"alt. Zuletzt wird die Datei unter dem neuen Namen
+abgespeichert. Dieser entspricht dem Eingabenamen und der Endung ".gpl" oder einem per Parameter frei gew\"ahlten Namen.
+
+\begin{center}
+	\vbox{
+		\includegraphics[width=\linewidth]{write.png}
+	}	
+\end{center}
+
 
 \subsection{Ablauf Hauptalgorithmus}
 
-\subsubsection{TODO}
+\subsubsection{Voriteration}
+
+Vor der ersten Iteration wird eine Voriteration durchgef\"uhrt, um das Endergebnis zu verbessern. Bei der Voriteration soll der Abstand zwischen den L\"andern
+vergr\"ossert werden, ohne das Verh\"altnis der L\"ander zu beeinflussen.
+Hierf\"ur habe ich mir zwei Ans\"atze \"uberlegt:\\
+Der erste Ansatz vergr\"ossert die Abst\"ande, indem alle Mittelpunkte um einen Faktor x skaliert werden. Der Faktor ist grunds\"atzlich erstmal eine positive reelle Zahl
+gr\"osser bzw. gleich 1 (falls keine Voriteration gewollt ist). Die hierdurch erzielten Ergebnisse waren insbesondere beim dritten Beispiel der IHK besser, f\"uhrten allerdings
+je nach gew\"ahltem Faktor auch zu zu grossen Zahlen und dadurch zu einem unbrauchbaren Ergebnis.
+Daher habe ich mir einen anderen Ansatz \"uberlegt, der auch besser funktioniert, n\"amlich die Verkleinerung der Radien. Hierf\"ur habe ich alle Radien zuerst mit einem
+Faktor x$>$1 (default = 2) multipliziert und anschliessend durch den kleinsten Radius geteilt.
+\vspace{3mm}
+\begin{center}
+	\vbox{
+		Voriteration 1: Skalieren der Kreismittelpunkte\\
+		\includegraphics[width=0.6\linewidth]{voriterationHochskalieren.png}
+	}
+	\vspace{5mm}
+	\vbox{
+		Voriteration 2: Skalieren der Radien\\
+		\includegraphics[width=0.6\linewidth]{voriterationRadienVerkleinern.png}
+	}
+\end{center}
+
+
+\subsubsection{Hauptalgorithmus}
+Der Hauptalgorithmus zur Bestimmung der Abstossungs- und Anziehungskr\"afte ist wie in der Aufgabenstellung angegeben ein Iterationsverfahren.
+Es bekommt die aktuelle geographische Lage als Karte \"ubergeben. Dabei handelt es sich entweder um die Ausgangslage nach der Voriteration oder aber um das Ergebnis
+der letzten Iteration. Der Hauptalgorithmus wird so oft ausgef\"uhrt wie Iterationen N (default=100) angegeben werden. Der Hauptalgorithmus berechnet f\"ur jeden Staat
+dessen Anziehungs- und Abstossungskr\"afte zu allen Nachbarstaaten bzw. zu Staaten, die von ihm geschnitten werden. Dabei gilt f\"ur die Kraft F von einem Staat A zu einem Staat B
+folgende Formel:\\
+\begin{center}
+\LARGE{$ F = \frac{|r_{A}+r_{B}+|\vec{d_{BA}}||}{g * |\vec{d_{AB}|}} * \vec{d_{BA}}$}
+\end{center}
+\vspace{5mm}
+Bei g handelt es sich um eine Konstante, die die Kr\"afte anteilig auf die beiden Staaten verteilt, sodass nicht beide die volle Kraft aufaddiert bekommen und nicht einer allein die ganze Kraft.
+In der Aufgabenstellung wurde vorgeschlagen die Kraft h\"alftig zu verteilen. Ich habe im Praxiseinsatz festgestellt, dass meine Implementierung besser funktioniert, wenn g$<$0.5 ist und habe einen
+Standardwert von 0.3 festgelegt. Die berechneten Kr\"afte werden auf den Kraftvektor des jeweiligen Landes addiert, weil f\"ur die Gesamtkraft, die auf ein Land A wirkt, gilt:\\
+\begin{center}
+\LARGE{$ F_{A} = \sum_{i=1}^{n} F_{i} $}
+\end{center}
+\vspace{5mm}
+wobei $ F_{i}$ alle auf das Land A wirkende Kr\"afte sind.\\
+
+Nach dem Berechnen werden alle Kr\"afte auf die Mittelpunkte der Kreise angewandt und so die \glqq{}neuen\grqq{} Mittelpunkte berechnet. Der gesamte Ablauf
+wird im folgenden in einem Nassi-Shneiderman-Diagramm dargestellt:
+
+\begin{center}
+	\vbox{
+		\includegraphics[width=\linewidth]{berechne.png}
+	}
+\end{center}
+
+
+
 
 \subsection{Sequenzdiagramm}
 
