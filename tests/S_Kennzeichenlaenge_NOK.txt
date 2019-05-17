@@ -1,0 +1,7 @@
+Flaeche der Staaten
+# Staat Fläche Längengrad Breitengrad
+D 357 10.0 51.3
+NL 42 5.3 52.2
+UDSSR 1922 55.45 37.37
+# Nachbarschaften
+D: NL UDSSR

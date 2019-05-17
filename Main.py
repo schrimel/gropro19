@@ -52,7 +52,7 @@ def main(arguments):
         else:
             main.mFilename = arguments.output
     except ArithmeticError as err:
-        sys.stderr.write(err)
+        sys.stderr.write(str(err))
         return 1
     main.mInput = InputReader(arguments.input)
     
@@ -62,9 +62,13 @@ def main(arguments):
         return 1
     karte = main.karte
     main.mBerechnung = StandardBerechnung()
+    stepsize = 0.1*main.iterationen
     for i in range(main.iterationen):
         if (i == 0):
+            print("Berechne Voriteration")
             main.mBerechnung.voriteration(karte, arguments.skalierungsfaktor)
+        if i % stepsize == 0:
+            print(""+ str(i) + " Iterationen")
         karte = main.mBerechnung.berechne(karte)
     karte.berechneMinimum()
     karte.scale()
@@ -72,6 +76,7 @@ def main(arguments):
         main.mFilename = arguments.input.split(".")[0]
     main.mOutput = OutputWriter(main.mFilename, "templates/template.txt",main.karte,main.iterationen)
     main.mOutput.write()
+    print("Beendet nach " + str(main.iterationen) + " Iterationen")
     return 0
 
 if __name__ == "__main__":

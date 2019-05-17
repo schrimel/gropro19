@@ -2,5 +2,6 @@ Flaeche der Staaten
 # Staat Fläche Längengrad Breitengrad
 D 357 10.0 51.3
 NL 42 5.3 52.2
+USA 2019 55.45 190
 # Nachbarschaften
-D: NL
+D: NL USA

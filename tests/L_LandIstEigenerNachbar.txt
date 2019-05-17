@@ -1,0 +1,6 @@
+Flaeche der Staaten
+# Staat Fläche Längengrad Breitengrad
+A 1 -179.99999999 -90.0
+BBB 10 180.0 90.0
+# Nachbarschaften
+A: A BBB

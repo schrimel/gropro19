@@ -38,14 +38,14 @@ class InputReader:
                     #input validieren
                     if splitted[0] in laendermap.keys():
                         raise RuntimeError("Error. Datei '" + self.mFilename + "' enthaelt das gleiche Land doppelt. Das ist nicht erlaubt!\n")
-                    if not re.match("[A-Z]{1,3}",splitted[0]):
-                        raise RuntimeError("Error. Laenderkennzeichen haben 1-3 Grossbuchstaben. Andere Zeichen sind nicht erlaubt.\n")
+                    if not len(splitted[0]) > 0 and len(splitted[0]) <= 3 and re.match("[A-Z]{1,3}",splitted[0]):
+                        raise RuntimeError("Error. Laenderkennzeichen haben 1-3 Grossbuchstaben. Andere oder mehr Zeichen sind nicht erlaubt.\n")
                     if int(splitted[1]) < 1:
                         raise RuntimeError("Error. So schoen Anti-Materie auch ist, leider sind keine negativen Kennzahlen erlaubt. Ausserdem muessen Kennzahlen mindestens den Wert 1 haben.")
                     if float(splitted[3]) < -180 or float(splitted[3]) > 180:
-                        raise RuntimeError("Error. Der Wert " + splitted[2] + " ist wohl offenkundig ausserhalb des erlaubten Intervalls [-180;180] fuer WGS84 Laengengrade")
+                        raise RuntimeError("Error. Der Wert " + splitted[3] + " ist wohl offenkundig ausserhalb des erlaubten Intervalls [-180;180] fuer WGS84 Breitengrade")
                     if float(splitted[3]) < -90 or float(splitted[3]) > 90:
-                        raise RuntimeError("Error. Der Wert " + splitted[3] + " ist wohl offenkundig ausserhalb des erlaubten Intervalls [-90;90] fuer WGS84 Breitengrade")
+                        raise RuntimeError("Error. Der Wert " + splitted[2] + " ist wohl offenkundig ausserhalb des erlaubten Intervalls [-90;90] fuer WGS84 Laengengrade")
                     for l in laender:
                         if l.xPos == splitted[2] and l.yPos == splitted[3]:
                             raise RuntimeError("Error. Die Datei enthaelt Laender mit der gleichen Position. Vatikanstadt oder was?!\n")
@@ -63,6 +63,8 @@ class InputReader:
                     nachbarNames = nachbarschaft[1].strip().split(" ")
                     #bidirektionale zuordnung durchfuehren
                     for landname in nachbarNames:
+                        if(laendermap[landname] == heimatland): 
+                            raise RuntimeError("Error. Ein Land kann nicht sich selbst als Nachbarn haben")
                         if(landname not in laendermap.keys()):
                             raise RuntimeError("Error. Scheint so, als wäre das Land " + nachbarschaft[0] + " nicht in der oberen Liste angegeben.")
                         if(laendermap[landname] not in nachbarmap[heimatland]):
@@ -78,7 +80,7 @@ class InputReader:
             sys.stderr.write("Error. Die Datei '" + self.mFilename +"' existiert nicht!\n")
             return None
         except RuntimeError as err:
-            sys.stderr.write(err)
+            sys.stderr.write(str(err))
             return None
         karte = Karte(laender, kennzahlBz)  #aus den eingelesenen laendern wird eine karte erzeugt
         return karte
