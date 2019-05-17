@@ -9,10 +9,10 @@ class OutputWriter:
 
     def __init__(self, iFilename, iTemplate, iKarte, iIterationen):
         """
-        Konstruktor fuer die Ausgabe
-        iFilename - Dateipfad fuer die Ausgabedatei
-        iTemplate - Template mit allgemeiner Form
-        iKarte - berechnete Karte zur Ausgabe
+        Konstruktor fuer die Ausgabe;
+        iFilename - Dateipfad fuer die Ausgabedatei;
+        iTemplate - Template mit allgemeiner Form;
+        iKarte - berechnete Karte zur Ausgabe;
         iIterationen - Anzahl der durchgefuehrten Iterationen
         """
         self.mFilename = iFilename
